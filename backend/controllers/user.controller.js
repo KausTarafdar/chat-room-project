@@ -1,6 +1,6 @@
-import User from "../models/user.model";
+import User from "../models/user.model.js";
 
-export const getUsersForSideBar = async (req, res) => {
+const getUsersForSidebar = async (req, res) => {
   try {
     const loggedInUserId = req.user._id;
 
@@ -10,6 +10,9 @@ export const getUsersForSideBar = async (req, res) => {
 
     res.status(200).json(filteredUsers);
   } catch (error) {
-    res.status.json({ error: "Internal Server Error" });
+    console.error("Error in getUsersForSidebar: ", error.message);
+    res.status(500).json({ error: "Internal server error" });
   }
 };
+
+export default getUsersForSidebar;
