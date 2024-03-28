@@ -1,8 +1,19 @@
 import React from 'react'
+import {BsSend} from "react-icons/bs"
 
 const MessageInput = () => {
   return (
-    <div>MessageInput</div>
+    <form className='px-4 my-3'>
+      <div className='w-full relative'>
+        <input type='text'
+        className='border text-sm rounded-full block w-full p-2.5 bg-stone-300 text-black'
+        placeholder='Send a message'
+        />
+        <button type='submit' className='absolute inset-y-0 end-0 flex items-center pe-3'>
+        <BsSend className='text-black'/>
+        </button>
+      </div>
+    </form>  
   )
 }
 
