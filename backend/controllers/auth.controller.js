@@ -4,7 +4,7 @@ import generateTokenAndSetCookie from "../utils/generate.token.js";
 
 export const signup = async (req, res) => {
     try {
-        const {fullName, username, password, confirmPassword, gender}= req.body;
+        const {fullName, username, password, confirmPassword, gender} = req.body;
 
         if(password !== confirmPassword) {
             return res.status(400).json({error:"Passwords do not match"})
@@ -37,12 +37,12 @@ export const signup = async (req, res) => {
             await generateTokenAndSetCookie(newUser._id, res)
             await newUser.save()
 
-        res.status(201).json({
-            _id: newUser._id,
-            fullName: newUser.fullName,
-            username: newUser.username,
-            profilePic: newUser.profilePic
-        })
+            res.status(201).json({
+                _id: newUser._id,
+                fullName: newUser.fullName,
+                username: newUser.username,
+                profilePic: newUser.profilePic,
+            })
         } else {
             res.status(400).json({error:"Invalid User Data"});
         }
