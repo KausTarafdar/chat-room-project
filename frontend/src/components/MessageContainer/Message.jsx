@@ -6,7 +6,6 @@ const Message = ({message}) => {
   const {authUser} = useAuthContext()
   const {selectedConversation} = useConversations()
   const fromSender = message.senderId === authUser._id
-  console.log(message.createdAt)
   const formattedDate = getExactTime(message.createdAt)
   const chatClassName = fromSender ? "chat-end" : 'chat-start'
   const profilePic = fromSender ? authUser.profilePic : selectedConversation?.profilePic

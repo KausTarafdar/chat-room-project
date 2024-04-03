@@ -13,6 +13,7 @@ const SignUp = () => {
     confirmPassword: '',
     gender: '',
   })
+  console.log(inputs)
 
   const {loading, signup} = useSignup()
 
